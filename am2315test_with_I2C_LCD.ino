@@ -51,7 +51,7 @@ void setup() {
   for (int positionCounter = 0; positionCounter < (51 - 16 - 6); positionCounter++) {
     // scroll one position left:
     lcd.scrollDisplayLeft();
-    lcd.setCursor(positionCounter+1, 0);
+    lcd.setCursor(positionCounter + 1, 0);
     lcd.print("Doel");
     // wait a bit:
     delay(250);
@@ -68,10 +68,10 @@ void setup() {
   lcd.print("Outeur  ");
   lcd.setCursor(0, 1);
   lcd.print("Rudolph ");
-  delay(1000);
+  delay(1500);
   lcd.setCursor(0, 1);
   lcd.print("Lombaard");
-  delay(1000);
+  delay(1500);
   lcd.setCursor(0, 0);
   lcd.print("Datum   ");
   lcd.setCursor(0, 1);
@@ -189,9 +189,12 @@ void loop() {
 
 #ifndef USE_LCD_20_4
     lcd.setCursor(0, 0);
-    lcd.print("Tmp:"); dtostrf(t, 2, 1, str_temp); lcd.print(str_temp);
+    //    lcd.print("Tmp:"); dtostrf(t, 2, 1, str_temp); lcd.print(str_temp);
+    //    lcd.print("Tmp:");dtostrf(round(t), 2, 0, str_temp);lcd.print(str_temp); lcd.print(char(0xDF)); lcd.print("C");
+    lcd.print("TMP "); lcd.print((int)round(t)); lcd.print(char(0xDF)); lcd.print("C");
     lcd.setCursor(0, 1);
-    lcd.print("Hum:"); dtostrf(h, 2, 1, str_temp); lcd.print(str_temp);
+    //    lcd.print("Hum:"); dtostrf(round(h), 2, 0, str_temp); lcd.print(str_temp); lcd.print("%");
+    lcd.print("HMD "); lcd.print((int)round(h)); lcd.print("%");
 #else
     lcd.setCursor(0, 0);
     //  lcd.print("MEASUREMENT: AIR");
